@@ -200,3 +200,37 @@ footer {
   padding: 20px;
   margin-top: 60px;
 }
+
+
+/* ===== NOTICE SECTION ===== */
+.notice-board {
+  background-color: #fff3cd;
+  color: #856404;
+  padding: 30px 20px;
+  border-top: 3px solid #ffeeba;
+  border-bottom: 3px solid #ffeeba;
+  font-family: 'Poppins', sans-serif;
+}
+
+.notice-container {
+  max-width: 1000px;
+  margin: auto;
+  text-align: left;
+}
+
+.notice-container h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #d48806;
+}
+
+.notice-list {
+  list-style-type: square;
+  padding-left: 20px;
+  font-size: 1rem;
+}
+
+.notice-list li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
