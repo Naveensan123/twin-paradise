@@ -3,13 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Twin Paradise Apartments</title>
-  <link rel="stylesheet" href="index.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <title>Contact Us - Twin Paradise</title>
+  <link rel="stylesheet" href="contact.css" />
 </head>
 <body>
 
-  <!-- Navigation -->
+<!-- Navigation (reuse from your current header) -->
 <header>
   <div class="navbar">
     <div class="logo">
@@ -22,12 +21,64 @@
       <li><a href="payment.html">Payment</a></li>
       <li><a href="notices.html">Notices</a></li>
       <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="staff.html">workers</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="staff.html">Workers</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
       <li><a href="nearby.html">Nearby places</a></li>
     </ul>
   </div>
 </header>
+
+<!-- Contact Info and Form -->
+  <div class="contact-container">
+    <div class="contact-info">
+      <h3>Contact Information</h3>
+      <p><strong>Apartment Name:</strong> Twin Paradise Apartments</p>
+      <p><strong>Location:</strong> Korattur, Chennai, Tamil Nadu</p>
+      <p><strong>Phone:</strong> +91-9876543210</p>
+      <p><strong>Email:</strong> twinparadise@gmail.com</p>
+    </div>
+
+    <h2>Contact Us</h2>
+    <form id="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="tel" name="mobile" placeholder="Mobile Number" required />
+      <input type="text" name="house_number" placeholder="House Number" required />
+      <input type="text" name="block_number" placeholder="Block Number" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+
+    <div id="form-message">Message sent successfully!</div>
+  </div>
+
+  <!-- JavaScript to handle submission -->
+  <script>
+    document.getElementById("contact-form").addEventListener("submit", function (e) {
+      e.preventDefault(); // prevent default page reload
+
+      const form = e.target;
+      const formData = new FormData(form);
+
+      fetch("https://formspree.io/f/mgvkgqlr", {  // Replace 'yourID' with your Formspree ID
+        method: "POST",
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(response => {
+        if (response.ok) {
+          document.getElementById("form-message").style.display = "block";
+          form.reset();
+        } else {
+          alert("There was a problem submitting your form.");
+        }
+      })
+      .catch(error => {
+        alert("There was an error. Please try again later.");
+      });
+    });
+  </script>
+
 
 </body>
 </html>
